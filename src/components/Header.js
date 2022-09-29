@@ -9,7 +9,7 @@ const Header = () => {
         <IoMdAmericanFootball />
       </div>
       <div className="title">
-        <h3>FootBall Defense Tracker</h3>
+        <h3>FootBall Schedule and Weather Tracker</h3>
       </div>
     </Wrapper>
   )
