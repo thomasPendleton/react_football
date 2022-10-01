@@ -16,10 +16,8 @@ export const getGameSchedule = createAsyncThunk("schedule/getSchedule", () => {
 
 const initialState = {
   gameSchedule: gameData,
-  yardsGiven: 0,
-  tdsGiven: 0,
   isLoading: false,
-  week: 4,
+  week: 1,
 }
 
 export const statsSlice = createSlice({
@@ -28,6 +26,11 @@ export const statsSlice = createSlice({
   reducers: {
     clearItem: (state) => {
       state.yardsGiven = 0
+    },
+    changeWeek: (state, action) => {
+      console.log(action.payload)
+      state.week = +action.payload
+      getGameSchedule()
     },
   },
   extraReducers: {
@@ -50,5 +53,5 @@ export const statsSlice = createSlice({
 
 // console.log(statsSlice)
 
-export const { clearItem } = statsSlice.actions
+export const { clearItem, changeWeek } = statsSlice.actions
 export default statsSlice.reducer

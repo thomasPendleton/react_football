@@ -48,7 +48,7 @@ export const gameData = [
     ForecastTempHigh: 61,
     ForecastDescription: "Scattered Clouds",
     ForecastWindChill: 61,
-    ForecastWindSpeed: 6,
+    ForecastWindSpeed: 16,
     AwayTeamMoneyLine: 177,
     HomeTeamMoneyLine: -212,
     Canceled: false,
