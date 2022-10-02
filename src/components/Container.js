@@ -5,12 +5,79 @@ import Teams from "./Teams"
 import WeekHeader from "./WeekHeader"
 import WeatherIcon from "./WeatherIcon"
 import { TiWeatherWindy } from "react-icons/ti"
-import { London, Cincinnati, Tampa } from "../stadium/"
+import {
+  London,
+  Jets,
+  Cleveland,
+  Baltimore,
+  Cincinnati,
+  Glendale,
+  Tampa,
+  InglewoodRams,
+  InglewoodChargers,
+  Atlanta,
+  Charlotte,
+  Chicago,
+  Saints,
+  Pittsburgh,
+  Buffalo,
+  Philadelphia,
+  Sanfran,
+  Detroit,
+  Chiefs,
+  Arlington,
+  Denver,
+  Raiders,
+  Packers,
+  Jacksonville,
+  Houston,
+  Dolphins,
+  Minneapolis,
+  Nashville,
+  Seattle,
+  Landover,
+  Indianapolis,
+  Foxborough,
+  Giants,
+  Munich,
+} from "../stadium/"
 
 const stadium = {
   London,
-  Cincinnati,
-  "Tampa Bay": Tampa,
+  Munich,
+  // Mexico Estadio azteca
+  CIN: Cincinnati,
+  TB: Tampa,
+  LAR: InglewoodRams,
+  LAC: InglewoodChargers,
+  ATL: Atlanta,
+  CAR: Charlotte,
+  CHI: Chicago,
+  ARI: Glendale,
+  NYJ: Jets,
+  BAL: Baltimore,
+  CLE: Cleveland,
+  NO: Saints,
+  PIT: Pittsburgh,
+  BUF: Buffalo,
+  PHI: Philadelphia,
+  SF: Sanfran,
+  DET: Detroit,
+  KC: Chiefs,
+  DAL: Arlington,
+  DEN: Denver,
+  LV: Raiders,
+  GB: Packers,
+  JAX: Jacksonville,
+  HOU: Houston,
+  MIA: Dolphins,
+  MIN: Minneapolis,
+  TEN: Nashville,
+  SEA: Seattle,
+  WAS: Landover,
+  IND: Indianapolis,
+  NE: Foxborough,
+  NYG: Giants,
 }
 
 const Container = () => {
@@ -22,7 +89,7 @@ const Container = () => {
 
   if (isLoading) {
     return (
-      <Wrapper>
+      <Wrapper className="loading">
         <h1>Loading...</h1>
       </Wrapper>
     )
@@ -41,14 +108,22 @@ const Container = () => {
             StadiumDetails,
             ForecastTempLow,
             ForecastTempHigh,
+            HomeTeam,
           } = game
           const { Type, City, PlayingSurface } = StadiumDetails
-          //   console.log(City)
+          console.log(City, HomeTeam)
+
           return (
             <div
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-                  url(${stadium[City]})`,
+                  url(${
+                    City === "London"
+                      ? stadium[City]
+                      : City === "Munich"
+                      ? stadium[City]
+                      : stadium[HomeTeam]
+                  })`,
                 backgroundPosition: `center`,
               }}
               className="game"
@@ -86,7 +161,9 @@ const Container = () => {
 const Wrapper = styled.main`
   margin: 0 auto;
   max-width: 95%;
-
+  .loading {
+    height: 100vh;
+  }
   .game {
     color: white;
     display: grid;

@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <Wrapper>
       <div className="logo">
-        <IoMdAmericanFootball />
+        <IoMdAmericanFootball className="football" />
       </div>
       <div className="title">
         <h3>FootBall Schedule and Weather Tracker</h3>
@@ -18,7 +18,7 @@ const Header = () => {
 
 const Wrapper = styled.header`
   display: flex;
-  gap: 10px;
+  /* gap: 10px; */
   background-color: #85c742;
   padding: 20px 10px;
   h3 {
@@ -26,12 +26,20 @@ const Wrapper = styled.header`
     font-size: 1rem;
   }
   .logo {
-    margin: auto 0;
-    transform: rotate(30deg);
+    /* font-size: 2rem; */
+    margin: 2px;
+
+    transform: rotate(50deg);
   }
   @media only screen and (min-width: 600px) {
     h3 {
       font-size: 2rem;
+    }
+    .logo {
+      font-size: 2rem;
+      margin: 6px;
+
+      /* transform: rotate(30deg); */
     }
   }
 `
