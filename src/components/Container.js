@@ -84,8 +84,10 @@ const Container = () => {
   const { week, gameSchedule, isLoading } = useSelector((store) => store.stats)
   //   console.log(gameSchedule);
 
-  const date = new Date("2022-10-02T13:00:00")
+  let date = new Date("2022-10-02T13:00:00")
   console.log(date.toDateString())
+  date = date.toDateString()
+  console.log(date);
 
   if (isLoading) {
     return (
@@ -111,7 +113,7 @@ const Container = () => {
             HomeTeam,
           } = game
           const { Type, City, PlayingSurface } = StadiumDetails
-          console.log(City, HomeTeam)
+          let date = new Date(DateCode).toDateString()
 
           return (
             <div
@@ -143,8 +145,9 @@ const Container = () => {
                   />
                 )}
               </div>
+
               <div className="icon">
-                <h5>{DateCode}</h5>
+                <h4>{date}</h4>
                 <WeatherIcon
                   forecastDescription={ForecastDescription}
                   city={City}

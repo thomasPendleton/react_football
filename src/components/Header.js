@@ -38,8 +38,6 @@ const Wrapper = styled.header`
     .logo {
       font-size: 2rem;
       margin: 6px;
-
-      /* transform: rotate(30deg); */
     }
   }
 `
