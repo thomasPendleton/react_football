@@ -15,7 +15,8 @@ export const getGameSchedule = createAsyncThunk("schedule/getSchedule", () => {
 })
 
 const initialState = {
-  gameSchedule: gameData,
+  gameSchedule: [],
+  filteredSchedule: [],
   isLoading: false,
   week: 1,
 }
@@ -24,13 +25,11 @@ export const statsSlice = createSlice({
   name: "stats",
   initialState,
   reducers: {
-    clearItem: (state) => {
-      state.yardsGiven = 0
-    },
     changeWeek: (state, action) => {
-      console.log(action.payload)
       state.week = +action.payload
-      getGameSchedule()
+      state.filteredSchedule = state.gameSchedule.filter(game => {
+        return game.Week === state.week
+      })
     },
   },
   extraReducers: {
@@ -38,11 +37,8 @@ export const statsSlice = createSlice({
       state.isLoading = true
     },
     [getGameSchedule.fulfilled]: (state, action) => {
-      console.log(action)
-      const currentWeekGames = action.payload.filter((game) => {
-        return game.Week === state.week
-      })
-      state.gameSchedule = currentWeekGames
+      state.gameSchedule = action.payload
+      state.filteredSchedule = state.gameSchedule.filter(game => game.Week === state.week)
       state.isLoading = false
     },
     [getGameSchedule.rejected]: (state) => {

@@ -18,18 +18,19 @@ const Header = () => {
 
 const Wrapper = styled.header`
   display: flex;
-  /* gap: 10px; */
   background-color: #85c742;
-  padding: 20px 10px;
+  padding: 0px 10px;
+  border-radius: 0 0 5px 5px;
   h3 {
     margin: 0;
     font-size: 1rem;
   }
   .logo {
-    /* font-size: 2rem; */
     margin: 2px;
-
     transform: rotate(50deg);
+  }
+  .title {
+    margin: 0;
   }
   @media only screen and (min-width: 600px) {
     h3 {
@@ -37,7 +38,7 @@ const Wrapper = styled.header`
     }
     .logo {
       font-size: 2rem;
-      margin: 6px;
+      margin-right: 6px;
     }
   }
 `

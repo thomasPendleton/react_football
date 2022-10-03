@@ -1,6 +1,7 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 import { useSelector, useDispatch } from "react-redux"
+import { changeWeek } from "../features/stats/statsSlice"
 import Teams from "./Teams"
 import WeekHeader from "./WeekHeader"
 import WeatherIcon from "./WeatherIcon"
@@ -81,14 +82,8 @@ const stadium = {
 }
 
 const Container = () => {
-  const { week, gameSchedule, isLoading } = useSelector((store) => store.stats)
-  //   console.log(gameSchedule);
-
-  let date = new Date("2022-10-02T13:00:00")
-  console.log(date.toDateString())
-  date = date.toDateString()
-  console.log(date);
-
+  const { week, gameSchedule, isLoading, filteredSchedule } = useSelector((store) => store.stats)
+    
   if (isLoading) {
     return (
       <Wrapper className="loading">
@@ -101,7 +96,7 @@ const Container = () => {
       <WeekHeader week={week} />
 
       <section>
-        {gameSchedule.map((game) => {
+        {filteredSchedule.map((game) => {
           const {
             GameKey,
             ForecastWindSpeed,
@@ -164,9 +159,7 @@ const Container = () => {
 const Wrapper = styled.main`
   margin: 0 auto;
   max-width: 95%;
-  .loading {
-    height: 100vh;
-  }
+  
   .game {
     color: white;
     display: grid;

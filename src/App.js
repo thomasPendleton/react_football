@@ -7,9 +7,10 @@ import { useSelector, useDispatch } from "react-redux"
 function App() {
   const { week } = useSelector((store) => store.stats)
   const dispatch = useDispatch()
+  
   useEffect(() => {
     dispatch(getGameSchedule())
-  }, [week])
+  }, [])
 
   return (
     <Wrapper>
@@ -20,7 +21,8 @@ function App() {
 }
 
 const Wrapper = styled.div`
-  background-color: #bdd9c921;
+  /* background-color: #bdd9c921; */
+
 `
 
 export default App
