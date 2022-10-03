@@ -46,7 +46,6 @@ import {
 const stadium = {
   London,
   Munich,
-  // Mexico Estadio azteca
   "Mexico City": Mexico,
   CIN: Cincinnati,
   TB: Tampa,
