@@ -21,6 +21,9 @@ const Wrapper = styled.header`
   background-color: #85c742;
   padding: 0px 10px;
   border-radius: 0 0 5px 5px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0, 0.5);
+  color: rgb(3,3,3);
+
   h3 {
     margin: 0;
     font-size: 1rem;

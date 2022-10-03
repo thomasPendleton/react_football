@@ -115,6 +115,7 @@ const Container = () => {
 
           return (
             <div
+            loading='lazy'
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                   url(${
@@ -170,13 +171,13 @@ const Wrapper = styled.main`
     display: grid;
     border-radius: 5px;
     grid-template-columns: 1fr 1fr 30%;
-    border: 2px solid black;
+    border: 2px solid rgb(10,10,10);
     padding: 10px 10px;
-    margin: 10px auto;
-    transition: transform .3s linear;
-    &:hover {
-      transform: scale(119%);
-    }
+    //change margin back to 10 px auto
+    margin: 20px auto;
+    transition: all 0.3s linear;
+    box-shadow: 5px 5px 8px 3px rgba(0,0,0, 0.4);
+    
   }
 
   .weather {
@@ -186,6 +187,16 @@ const Wrapper = styled.main`
   }
   .icon {
     text-align: center;
+  }
+  @media only screen and (min-width: 850px) {
+    max-width: 700px;
+    .game {
+      padding: 15px 20px;
+      &:hover {
+        transform: scale(119%);
+        box-shadow: 0 0 10px 0px rgba(0,0,0,0.3);
+      }
+    }
   }
   @media only screen and (min-width: 600px) {
     max-width: 700px;

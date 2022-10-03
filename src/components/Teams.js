@@ -76,8 +76,8 @@ const Teams = ({ AwayTeam, HomeTeam, StadiumDetails }) => {
   return (
     <Wrapper>
       <div className="icon-container">
-        <img src={teamIcons[AwayTeam]} alt={AwayTeam} className="icon" />
         <img src={teamIcons[HomeTeam]} alt={HomeTeam} className="icon" />
+        <img src={teamIcons[AwayTeam]} alt={AwayTeam} className="icon" />
       </div>
       <div className="team-abbv-container">
         <h4>{AwayTeam} </h4>

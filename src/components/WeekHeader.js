@@ -37,6 +37,7 @@ const Wrapper = styled.section`
   justify-content: space-between;
   align-items: center;
   margin: 0 20px;
+  color: rgb(3,3,3);
   select {
     outline: none;
     text-transform: capitalize;
