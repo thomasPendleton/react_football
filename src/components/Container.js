@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useSelector, useDispatch } from "react-redux"
-import { changeWeek } from "../features/stats/statsSlice"
 import Teams from "./Teams"
 import WeekHeader from "./WeekHeader"
 import WeatherIcon from "./WeatherIcon"
@@ -41,12 +40,14 @@ import {
   Foxborough,
   Giants,
   Munich,
+  Mexico,
 } from "../stadium/"
 
 const stadium = {
   London,
   Munich,
   // Mexico Estadio azteca
+  "Mexico City": Mexico,
   CIN: Cincinnati,
   TB: Tampa,
   LAR: InglewoodRams,
@@ -82,8 +83,10 @@ const stadium = {
 }
 
 const Container = () => {
-  const { week, gameSchedule, isLoading, filteredSchedule } = useSelector((store) => store.stats)
-    
+  const { week, gameSchedule, isLoading, filteredSchedule } = useSelector(
+    (store) => store.stats
+  )
+
   if (isLoading) {
     return (
       <Wrapper className="loading">
@@ -118,6 +121,8 @@ const Container = () => {
                     City === "London"
                       ? stadium[City]
                       : City === "Munich"
+                      ? stadium[City]
+                      : City === "Mexico City"
                       ? stadium[City]
                       : stadium[HomeTeam]
                   })`,
@@ -159,7 +164,7 @@ const Container = () => {
 const Wrapper = styled.main`
   margin: 0 auto;
   max-width: 95%;
-  
+
   .game {
     color: white;
     display: grid;
@@ -168,7 +173,11 @@ const Wrapper = styled.main`
     border: 2px solid black;
     padding: 10px 10px;
     margin: 10px auto;
+    &:hover {
+      transform: scale(101%);
+    }
   }
+
   .weather {
     margin: 0 5px;
     text-align: center;

@@ -32,9 +32,11 @@ import Indianapolis from "./colts.jpg"
 import Foxborough from "./patriots.jpg"
 import Giants from './giants.jpg'
 import Munich from './munich.jpg'
+import Mexico from './mexico.png'
 
 export {
   London,
+  Mexico,
   Cincinnati,
   Tampa,
   InglewoodRams,
