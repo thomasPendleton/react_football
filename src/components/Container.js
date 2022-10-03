@@ -173,8 +173,9 @@ const Wrapper = styled.main`
     border: 2px solid black;
     padding: 10px 10px;
     margin: 10px auto;
+    transition: transform .3s linear;
     &:hover {
-      transform: scale(101%);
+      transform: scale(119%);
     }
   }
 
