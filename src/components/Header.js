@@ -19,14 +19,14 @@ const Header = () => {
 const Wrapper = styled.header`
   display: flex;
   background-color: #85c742;
-  padding: 0px 10px;
+  padding: 10px 10px;
   border-radius: 0 0 5px 5px;
-  box-shadow: 0 0 10px 1px rgba(0,0,0, 0.5);
-  color: rgb(3,3,3);
-
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+  color: rgb(3, 3, 3);
+  justify-content: center;
+  font-size: .9rem;
   h3 {
     margin: 0;
-    font-size: 1rem;
   }
   .logo {
     margin: 2px;
@@ -35,12 +35,16 @@ const Wrapper = styled.header`
   .title {
     margin: 0;
   }
+  @media only screen and (min-width: 700px) {
+    font-size: 2rem;
+  }
   @media only screen and (min-width: 600px) {
+    padding: 0px 10px;
+    font-size: 1.5rem;
     h3 {
-      font-size: 2rem;
     }
     .logo {
-      font-size: 2rem;
+      font-size: 1.75rem;
       margin-right: 6px;
     }
   }

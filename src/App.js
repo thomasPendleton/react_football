@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import Container from "./components/Container"
 import Header from "./components/Header"

@@ -1,6 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
+import { keyframes } from "styled-components"
+import { IoMdAmericanFootball } from "react-icons/io"
 import Teams from "./Teams"
 import WeekHeader from "./WeekHeader"
 import WeatherIcon from "./WeatherIcon"
@@ -86,11 +88,14 @@ const Container = () => {
     (store) => store.stats
   )
 
+  //change back to isLoading
   if (isLoading) {
     return (
-      <Wrapper className="loading">
-        <h1>Loading...</h1>
-      </Wrapper>
+      <Loader>
+        <IoMdAmericanFootball className="football-icon" />
+        <IoMdAmericanFootball className="football-icon" />
+        <IoMdAmericanFootball className="football-icon" />
+      </Loader>
     )
   }
   return (
@@ -114,7 +119,7 @@ const Container = () => {
 
           return (
             <div
-            loading='lazy'
+              loading="lazy"
               style={{
                 background: `linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
                   url(${
@@ -160,6 +165,21 @@ const Container = () => {
     </Wrapper>
   )
 }
+const spinAnimation = keyframes`
+  0% { transform:rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`
+
+const Loader = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  .football-icon {
+    font-size: 6rem;
+    animation: ${spinAnimation} 1s infinite linear;
+  }
+`
 
 const Wrapper = styled.main`
   margin: 0 auto;
@@ -170,13 +190,12 @@ const Wrapper = styled.main`
     display: grid;
     border-radius: 5px;
     grid-template-columns: 1fr 1fr 30%;
-    border: 2px solid rgb(10,10,10);
+    border: 2px solid rgb(10, 10, 10);
     padding: 10px 10px;
     //change margin back to 10 px auto
     margin: 20px auto;
     transition: all 0.3s linear;
-    box-shadow: 5px 5px 8px 3px rgba(0,0,0, 0.4);
-    
+    box-shadow: 5px 5px 8px 3px rgba(0, 0, 0, 0.4);
   }
 
   .weather {
@@ -193,7 +212,7 @@ const Wrapper = styled.main`
       padding: 15px 20px;
       &:hover {
         transform: scale(119%);
-        box-shadow: 0 0 10px 0px rgba(0,0,0,0.3);
+        box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.3);
       }
     }
   }
