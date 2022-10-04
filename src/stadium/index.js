@@ -32,7 +32,7 @@ import Indianapolis from "./colts.webp"
 import Foxborough from "./patriots.webp"
 import Giants from './giants.webp'
 import Munich from './munich.webp'
-import Mexico from './mexico.webp'
+import Mexico from './mexico.jpg'
 
 export {
   London,
