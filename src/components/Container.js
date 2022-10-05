@@ -177,6 +177,7 @@ const Loader = styled.section`
   height: 40vh;
   .football-icon {
     font-size: 6rem;
+    color: brown;
     animation: ${spinAnimation} 1s infinite linear;
   }
 `

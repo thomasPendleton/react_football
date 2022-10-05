@@ -105,6 +105,7 @@ const Wrapper = styled.div`
       margin: auto;
       max-height: 40px;
       max-width: 60px;
+      filter: drop-shadow(1px 1px 1px rgb(3,3,3));
     }
   }
   .team-abbv-container {

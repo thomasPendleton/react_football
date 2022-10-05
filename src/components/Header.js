@@ -25,14 +25,22 @@ const Wrapper = styled.header`
   color: rgb(3, 3, 3);
   justify-content: center;
   font-size: .9rem;
+
   h3 {
     margin: 0;
+  }
+  .football{
+    color: brown;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0));
   }
   .logo {
     margin: 2px;
     transform: rotate(50deg);
   }
   .title {
+    color: rgb(19,19,19);
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0, 0.7));
+
     margin: 0;
   }
   @media only screen and (min-width: 700px) {
