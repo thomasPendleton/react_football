@@ -70,8 +70,8 @@ const teamIcons = {
   SF: SF,
 }
 
-const Teams = ({ AwayTeam, HomeTeam, StadiumDetails }) => {
-  const { Type, City, PlayingSurface } = StadiumDetails
+const Teams = ({ AwayTeam, HomeTeam, StadiumDetails, Day }) => {
+  const { Type, City, PlayingSurface, State, Country } = StadiumDetails
 
   return (
     <Wrapper>
@@ -84,7 +84,16 @@ const Teams = ({ AwayTeam, HomeTeam, StadiumDetails }) => {
         <h4>@</h4>
         <h4>{HomeTeam}</h4>
       </div>
-      <h4>{City}</h4>
+      <a
+        className="weather-link"
+        target="_blank"
+        rel="noreferrer"
+        href={`https://www.google.com/search?q=${City}+${
+          State ? State : Country
+        }+weather`}
+      >
+        <h4>{City}</h4>
+      </a>
       <h4>
         {Type === "RetractableDome" ? "Retractable Dome" : Type},{" "}
         {PlayingSurface === null ? "unknown" : PlayingSurface}
@@ -97,6 +106,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  .weather-link {
+    text-decoration: none;
+    color: white;
+  }
   .icon-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -105,7 +118,7 @@ const Wrapper = styled.div`
       margin: auto;
       max-height: 40px;
       max-width: 60px;
-      filter: drop-shadow(1px 1px 1px rgb(3,3,3));
+      filter: drop-shadow(1px 1px 1px rgb(3, 3, 3));
     }
   }
   .team-abbv-container {

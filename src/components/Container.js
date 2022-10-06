@@ -217,8 +217,9 @@ const Wrapper = styled.main`
       }
     }
   }
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 700px) {
     max-width: 700px;
+    width: 95%;
     .game {
       padding: 15px 20px;
     }
