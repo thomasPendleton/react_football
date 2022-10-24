@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import styled from "styled-components"
 import Container from "./components/Container"
 import Header from "./components/Header"
-import { getGameSchedule } from "./features/stats/statsSlice"
+import { getGameSchedule, getCurrentWeek } from "./features/stats/statsSlice"
 import { useSelector, useDispatch } from "react-redux"
 
 function App() {
@@ -10,6 +10,7 @@ function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
+    dispatch(getCurrentWeek())
     dispatch(getGameSchedule())
   }, [])
 
@@ -22,7 +23,7 @@ function App() {
 }
 
 const Wrapper = styled.div`
-  /* background-color: #bdd9c921; */
+  background-color: #bdd9c921;
 `
 
 export default App

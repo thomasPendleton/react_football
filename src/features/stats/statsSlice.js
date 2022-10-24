@@ -8,10 +8,17 @@ const url = "https://api.sportsdata.io/v3/nfl/scores/json/Scores/2022?key="
 
 
 export const getGameSchedule = createAsyncThunk("schedule/getSchedule", () => {
-    console.log('fetching');
-    return fetch(url + key)
+  return fetch(url + key)
     .then((response) => response.json())
     .catch((err) => console.log(err))
+})
+
+export const getCurrentWeek = createAsyncThunk("week/currentWeek", () => {
+  return fetch(
+    `https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=${key}`
+  )
+    .then((response) => response.json())
+    .catch((error) => console.log(error))
 })
 
 const initialState = {
@@ -42,6 +49,16 @@ export const statsSlice = createSlice({
       state.isLoading = false
     },
     [getGameSchedule.rejected]: (state) => {
+      state.isLoading = false
+    },
+    [getCurrentWeek.pending]: (state) => {
+      state.isLoading = true
+    },
+    [getCurrentWeek.fulfilled]: (state, action) => {
+      state.week = action.payload
+      state.isLoading = false
+    },
+    [getCurrentWeek.rejected]: (state) => {
       state.isLoading = false
     },
   },
