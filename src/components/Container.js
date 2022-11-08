@@ -115,7 +115,9 @@ const Container = () => {
             HomeTeam,
           } = game
           const { Type, City, PlayingSurface } = StadiumDetails
-          let date = new Date(DateCode).toDateString()
+
+          const date = new Intl.DateTimeFormat('en-US', { weekday: 'long', month: 'short', day: 'numeric' }).format(new Date(DateCode))
+          const time = new Intl.DateTimeFormat('en-US', {  hour: 'numeric', minute: 'numeric' }).format(new Date(DateCode))
 
           return (
             <div
@@ -153,6 +155,7 @@ const Container = () => {
 
               <div className="icon">
                 <h4>{date}</h4>
+                <h4>{time}</h4>
                 <WeatherIcon
                   forecastDescription={ForecastDescription}
                   city={City}

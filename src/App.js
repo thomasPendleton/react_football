@@ -24,6 +24,7 @@ function App() {
 
 const Wrapper = styled.div`
   background-color: #bdd9c921;
+  height: 100vh;
 `
 
 export default App
